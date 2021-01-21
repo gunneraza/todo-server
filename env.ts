@@ -4,7 +4,7 @@
 |--------------------------------------------------------------------------
 |
 | In this file we define the rules for validating environment variables.
-| By performing validation we ensure that your application is running in
+| By performing Validations we ensure that your application is running in
 | a stable environment with correct configuration values.
 |
 | This file is read automatically by the framework during the boot lifecycle
