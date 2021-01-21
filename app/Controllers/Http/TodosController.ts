@@ -6,6 +6,11 @@ export default class TodosController {
   public async index({ request }: HttpContextContract) {
     const page = request.input('page', 1)
     const limit = request.input('limit', 6)
+    const status = request.input('status', null)
+
+    if (status) {
+      return await Todo.query().where('status', status).paginate(page, limit)
+    }
 
     return await Todo.query().paginate(page, limit)
   }
