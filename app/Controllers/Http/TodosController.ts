@@ -3,8 +3,11 @@ import Todo from 'App/Models/Todo'
 import todoSchema from 'App/Validations/todo.schema'
 
 export default class TodosController {
-  public async index() {
-    return await Todo.all()
+  public async index({ request }: HttpContextContract) {
+    const page = request.input('page', 1)
+    const limit = request.input('limit', 6)
+
+    return await Todo.query().paginate(page, limit)
   }
 
   public async store({ request, response }: HttpContextContract) {
