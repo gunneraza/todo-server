@@ -26,8 +26,8 @@ export default class TodosController {
     }
   }
 
-  public async show({ params }) {
-    return await Todo.findOrFail(+params.id)
+  public async show({ params }: HttpContextContract) {
+    return await Todo.findOrFail(params.id)
   }
 
   public async update({ request, params }: HttpContextContract) {
@@ -41,8 +41,8 @@ export default class TodosController {
     }
   }
 
-  public async destroy({ params }) {
-    const todo = await Todo.findOrFail(+params.id)
+  public async destroy({ params }: HttpContextContract) {
+    const todo = await Todo.findOrFail(params.id)
     return await todo.delete()
   }
 }
