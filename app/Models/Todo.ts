@@ -5,13 +5,13 @@ export default class Todo extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column({ isPrimary: true })
+  @column()
   public title: string
 
-  @column({ isPrimary: true })
+  @column()
   public description: string
 
-  @column({ isPrimary: true })
+  @column()
   public status: string
 
   @column.dateTime({ autoCreate: true })
